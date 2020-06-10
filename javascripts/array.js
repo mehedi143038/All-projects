@@ -1,0 +1,17 @@
+var shaliHeiht = [23, 54,322, 67];
+console.log(shaliHeiht);
+console.log(shaliHeiht[2]);
+shaliHeiht[2]=34;
+console.log(shaliHeiht);
+console.log(shaliHeiht.indexOf(54));
+console.log(shaliHeiht.length);
+shaliHeiht.push(35);
+shaliHeiht.push(90);
+console.log(shaliHeiht);
+console.log(shaliHeiht.length);
+shaliHeiht.pop();
+console.log(shaliHeiht);
+shaliHeiht.shift();
+console.log(shaliHeiht);
+shaliHeiht.unshift(78);
+console.log(shaliHeiht);

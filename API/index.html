@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON learning</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <h2>javascript Object Notation</h2>
+    <h4 id="username-display"></h4>
+    <ul id="user-container1"></ul>
+    <h4 id="name-display"></h4>
+    <ul id="user-container2"></ul>
+    <script>
+        // const user = {
+        //     name: "mehedi",
+        //     id: 234
+        // }
+        // const userJSON = JSON.stringify(user);
+        // console.log(userJSON);
+        
+        // const fromUserJSON = JSON.parse(userJSON);
+        // console.log(fromUserJSON);
+
+        
+        
+        const h4 = document.getElementById("username-display");
+        const val = document.createElement("h4");
+        val.innerText ="Usernames";
+        h4.appendChild(val);
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => displayUser(json))
+        .catch(error => console.log(error))
+
+        function displayUser(users){
+            const userName = users.map(user => user.username);
+            const ul = document.getElementById("user-container1");
+            for(let i=0;i<userName.length;i++){
+                const username = userName[i];
+                const li = document.createElement("li");
+                li.innerText = username;
+                ul.appendChild(li);
+            }
+        }
+
+
+        const name_id = document.getElementById("name-display");
+        const name_val = document.createElement("h4");
+        name_val.innerText = "Names";
+        name_id.appendChild(name_val);
+
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => displayName(json))
+
+        function displayName(users){
+            const names = users.map(user =>user.name);
+            const ul = document.getElementById("user-container2");
+            for(let i=0;i<names.length;i++){
+                const name = names[i];
+                const li = document.createElement("li");
+                li.innerText = name;
+                ul.appendChild(li);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
